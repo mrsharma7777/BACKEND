@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken");
 const crypto = require("crypto"); // To generate reset token
 const nodemailer = require("nodemailer"); // To send reset emails
 const { Pool } = require("pg");
-
+const cors = require('cors');
 const router = express.Router();
 
 const pool = new Pool({
@@ -30,6 +30,11 @@ const transporter = nodemailer.createTransport({
     pass: "",
   },
 });
+app.use(cors({
+  origin: 'https://jrinfotech.netlify.app', // Replace with your frontend's URL
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed methods
+  credentials: true, // Allow cookies or authentication headers
+}));
 
 // Signup Route
 router.post("/signup", async (req, res) => {
