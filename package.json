@@ -7,7 +7,7 @@
     "custom": "npm start",
     "start": "concurrently \"node server.js\" \"node authRoutes.js\"",
     "dev": "node server.js",
-    "build": "react-script build",
+    "build": "npm install && npm install concurrently && npm install bcryptjs && npm install nodemailer && react-script build",
     "eject": "react-script eject"
   },
   "keywords": [],
