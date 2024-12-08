@@ -4,10 +4,10 @@
   "main": "server.js",
   "scripts": {
     "test": "react-scripts test ",
-    "custom": "npm start",
+    "custom": "npm install && npm install concurrently && npm install bcryptjs && npm install nodemailer",
     "start": "concurrently \"node server.js\" \"node authRoutes.js\"",
     "dev": "node server.js",
-    "build": "npm install && npm install concurrently && npm install bcryptjs && npm install nodemailer && react-script build",
+    "build": "react-script build",
     "eject": "react-script eject"
   },
   "keywords": [],
