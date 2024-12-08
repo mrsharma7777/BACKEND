@@ -30,7 +30,7 @@ const transporter = nodemailer.createTransport({
     pass: "",
   },
 });
-app.use(cors({
+router.use(cors({
   origin: 'https://jrinfotech.netlify.app', // Replace with your frontend's URL
   methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed methods
   credentials: true, // Allow cookies or authentication headers
