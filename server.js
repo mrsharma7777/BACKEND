@@ -37,7 +37,7 @@ const pool = new Pool({
 app.use(cors());
 app.use(express.json());
 
-const app = express();
+
 
 // ✅ Allow multiple domains including transactions1.netlify.app
 const allowedOrigins = [
