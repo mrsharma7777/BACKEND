@@ -21,7 +21,7 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use("/auth", authRoutes);
 
-const cors = require('cors');
+
 
 const pool = new Pool({
   host: "dpg-d08bjjc9c44c73bpb2rg-a.singapore-postgres.render.com",
