@@ -20,6 +20,8 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(bodyParser.json());
 app.use("/auth", authRoutes);
+const express = require('express');
+const cors = require('cors');
 
 const pool = new Pool({
   host: "dpg-d08bjjc9c44c73bpb2rg-a.singapore-postgres.render.com",
@@ -34,6 +36,25 @@ const pool = new Pool({
 
 app.use(cors());
 app.use(express.json());
+
+const app = express();
+
+// ✅ Allow multiple domains including transactions1.netlify.app
+const allowedOrigins = [
+  'https://jrinfotech.netlify.app',
+  'https://transactions1.netlify.app',
+];
+
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true
+}));
 
 // Store all live clients
 let liveClients = [];
