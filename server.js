@@ -27,10 +27,10 @@ const pool = new Pool({
   host: "dpg-d0q2116mcj7s73elenag-a.singapore-postgres.render.com",
   user: "rawdata_user",
   port: 5432,
-  password: "YQA0gX7NIv6IKNmmjRS2IQCOcqh2IpFy", // Set your actual DB password
+  password: "YQA0gX7NIv6IKNmmjRS2IQCOcqh2IpFy",// Set your actual DB password
   database: "rawdata",
   ssl: {
-    rejectUnauthorized: false, // Required for many cloud-hosted PostgreSQL providers
+    rejectUnauthorized: false,// Required for many cloud-hosted PostgreSQL providers
   },
 });
 
