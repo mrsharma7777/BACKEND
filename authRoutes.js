@@ -8,11 +8,11 @@ const cors = require('cors');
 const router = express.Router();
 
 const pool = new Pool({
-  host: "dpg-d1t072mr433s73eqsnt0-a.singapore-postgres.render.com",
-  user: "database_e8zo_user",
+  host: "dpg-d29hibur433s739cm6t0-a.singapore-postgres.render.com",
+  user: "database_grl2_user",
   port: 5432,
-  password: "KtdeYLVbaLxQIeJ24KKcqqlIJffrd8P0",// Set your actual DB password
-  database: "database_e8zo",
+  password: "38oVBIoXHQ2wSOP2jFTD4ft48zfqRx0w",// Set your actual DB password
+  database: "database_grl2",
   ssl: {
     rejectUnauthorized: false,// Required for many cloud-hosted PostgreSQL providers
   },
