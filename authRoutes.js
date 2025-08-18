@@ -13,9 +13,7 @@ const pool = new Pool({
   port: 5432,
   password: "38oVBIoXHQ2wSOP2jFTD4ft48zfqRx0w",// Set your actual DB password
   database: "database_grl2",
-  ssl: {
-    rejectUnauthorized: false,// Required for many cloud-hosted PostgreSQL providers
-  },
+
 });
 
 const SECRET_KEY = "your_jwt_secret"; // Use a strong secret key in production
