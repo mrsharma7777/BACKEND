@@ -29,9 +29,7 @@ const pool = new Pool({
   port: 5432,
   password: "38oVBIoXHQ2wSOP2jFTD4ft48zfqRx0w",// Set your actual DB password
   database: "database_grl2",
-  ssl: {
-    rejectUnauthorized: false,// Required for many cloud-hosted PostgreSQL providers
-  },
+ 
 });
 
 app.use(cors());
