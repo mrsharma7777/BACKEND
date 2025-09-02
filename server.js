@@ -24,11 +24,11 @@ app.use("/auth", authRoutes);
 
 
 const pool = new Pool({
-  host: "dpg-d29hibur433s739cm6t0-a.singapore-postgres.render.com",
-  user: "database_grl2_user",
+  host: "dpg-d2rcmnfdiees73e6t780-a.singapore-postgres.render.com",
+  user: "database_62jl_user",
   port: 5432,
-  password: "38oVBIoXHQ2wSOP2jFTD4ft48zfqRx0w",// Set your actual DB password
-  database: "database_grl2",
+  password: "SxeOpFgzpnK5bOMWqWlSnc5flE6jWVz1",// Set your actual DB password
+  database: "database_62jl",
    ssl: {
     rejectUnauthorized: false,// Required for many cloud-hosted PostgreSQL providers
   },
