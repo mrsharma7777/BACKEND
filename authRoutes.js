@@ -16,7 +16,7 @@ const pool = new Pool({
    ssl: {
     rejectUnauthorized: false,// Required for many cloud-hosted PostgreSQL providers
   },
-
+ 
 });
 
 const SECRET_KEY = "your_jwt_secret"; // Use a strong secret key in production
