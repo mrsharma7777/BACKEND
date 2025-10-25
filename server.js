@@ -24,7 +24,7 @@ app.use("/auth", authRoutes);
 
 
 const pool = new Pool({
- host: "dpg-d3icjl56ubrc7396c31g-a.singapore-postgres.render.co",
+ host: "dpg-d3icjl56ubrc7396c31g-a.singapore-postgres.render.com",
   user: "database_mvvz_user",
   port: 5432,
   password: "8CX0DbbDEaR0FLFqZKtku4K4K4mQOeiu",// Set your actual DB password
