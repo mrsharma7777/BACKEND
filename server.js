@@ -30,7 +30,7 @@ const pool = new Pool({
   password: "8CX0DbbDEaR0FLFqZKtku4K4K4mQOeiu",// Set your actual DB password
   database: "database_mvvz",
    ssl: {
-    rejectUnauthorized: false,// Required for many cloud-hosted PostgreSQL providers
+    rejectUnauthorized: fals,// Required for many cloud-hosted PostgreSQL providers
   },
  
 });
