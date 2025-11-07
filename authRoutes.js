@@ -1,7 +1,7 @@
 const express = require("express");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const crypto = require("crypto"); // To generate reset token
+const crypto = require("crypto"); // To generate 
 const nodemailer = require("nodemailer"); // To send reset emails
 const { Pool } = require("pg");
 const cors = require('cors');
