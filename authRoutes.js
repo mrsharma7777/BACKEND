@@ -21,7 +21,7 @@ const pool = new Pool({
 
 const SECRET_KEY = "your_jwt_secret"; // Use a strong secret key in production
 const EMAIL_USER = "your-email@example.com"; // Your email for sending
-const EMAIL_PASS = "your-email-password"; // Your email password
+// Your email password
 
 // Email transport configuration
 const transporter = nodemailer.createTransport({
