@@ -41,10 +41,10 @@ app.use(express.json());
 
 
 // ✅ Allow multiple domains including transactions1.netlify.app
-const allowedOrigins = [
-  'https://jrinfotech.netlify.app',
-  'https://transactions1.netlify.app',
-];
+// const allowedOrigins = [
+//   'https://jrinfotech.netlify.app',
+//   'https://transactions1.netlify.app',
+// ];
 
 app.use(cors({
   origin: function (origin, callback) {
