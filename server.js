@@ -9,53 +9,52 @@ const { Pool } = require("pg");
 const http = require("http");
 const socketIo = require("socket.io");
 const server = http.createServer(app);
-const BASE_URL=process.env.BASE_URL;
+const BASE_URL = process.env.BASE_URL;
 const io = socketIo(server, {
   cors: {
     origin: "*",
   },
 });
-const PORT = process.env.PORT || 3000;
-
+// app.use(
+//   cors({
+//     origin: ["https://jrinfotech.netlify.app", "http://localhost:5173"], // Add localhost for development
+//     methods: "GET,POST,PUT,DELETE",
+//     credentials: true,
+//   })
+// );
+// app.use(cors{"https://jrinfotech.netlify.app","http://localhost:5173"})
+// methods:"GET,POST,PUT,DELETE"
 app.use(cors());
 app.use(bodyParser.json());
 app.use("/auth", authRoutes);
 
-
-
 const pool = new Pool({
- host: "dpg-d4liaeodl3ps73871he0-a.singapore-postgres.render.com",
+  host: "dpg-d4liaeodl3ps73871he0-a.singapore-postgres.render.com",
   user: "database_inlf_user",
   port: 5432,
   password: "hInbQ5fjJLxSxzhG4oUQDCekj0FqW7yV",// Set your actual DB password
   database: "database_inlf",
-   ssl: {
+  ssl: {
     rejectUnauthorized: false,// Required for many cloud-hosted PostgreSQL providers
   },
- 
+
 });
+
+// const pool = new Pool({
+//   host: "localhost",
+//   user: "postgres",
+//   port: 5432,
+//   password: "12345", // Set your actual DB password
+//   database: "postgres",
+//   // ssl: {
+//   //   rejectUnauthorized: false, // Required for many cloud-hosted PostgreSQL providers
+//   // },
+// });
+
+
 
 app.use(cors());
 app.use(express.json());
-
-
-
-✅ Allow multiple domains including transactions1.netlify.app
-const allowedOrigins = [
-  'https://jrinfotech.netlify.app',
-  'https://transactions1.netlify.app',
-];
-
-app.use(cors({
-  origin: function (origin, callback) {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-  credentials: true
-}));
 
 // Store all live clients
 let liveClients = [];
@@ -72,6 +71,7 @@ io.on("connection", (socket) => {
   socket.on("disconnect", () => {
     console.log("A user disconnected: ", socket.id);
     liveClients = liveClients.filter((id) => id !== socket.id);
+
   });
 });
 // server.js
@@ -104,14 +104,25 @@ app.put("/transaction/:id", async (req, res) => {
   const { date, amount, description } = req.body;
 
   try {
-    const result = await pool.query(
-      "UPDATE transactions SET date = $1, amount = $2, description = $3 WHERE id = $4 RETURNING *",
-      [date, amount, description, id]
+    // Retrieve the existing transaction to preserve its date if a new one isn't provided
+    const existingTransaction = await pool.query(
+      "SELECT date FROM transactions WHERE id = $1",
+      [id]
     );
 
-    if (result.rows.length === 0) {
+    if (existingTransaction.rows.length === 0) {
       return res.status(404).json({ error: "Transaction not found" });
     }
+
+    // Use the existing date if a new one isn't provided
+    const updatedDate = date
+      ? new Date(date).toISOString().split('T')[0] // Convert to YYYY-MM-DD format
+      : existingTransaction.rows[0].date;
+
+    const result = await pool.query(
+      "UPDATE transactions SET date = $1, amount = $2, description = $3 WHERE id = $4 RETURNING *",
+      [updatedDate, amount, description, id]
+    );
 
     res.status(200).json(result.rows[0]);
   } catch (error) {
@@ -119,7 +130,18 @@ app.put("/transaction/:id", async (req, res) => {
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
-
+// Ensure consistent sorting in your query for fetching transactions
+app.get("/transactions", async (req, res) => {
+  try {
+    const result = await pool.query(
+      "SELECT * FROM transactions ORDER BY date DESC, id ASC" // Adjust sorting as needed
+    );
+    res.status(200).json(result.rows);
+  } catch (error) {
+    console.error("Error fetching transactions:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
 app.get("/lives", async (req, res) => {
   try {
     const transactions = await pool.query(`
@@ -162,7 +184,6 @@ const sendTransactionTotals = async (socket = null) => {
     console.error("Error fetching transaction totals:", err);
   }
 };
-
 // Send live user count to all clients
 const sendTotalUserCount = async (socket = null) => {
   try {
@@ -181,7 +202,6 @@ const sendTotalUserCount = async (socket = null) => {
     console.error("Error fetching total user count:", err);
   }
 };
-
 const generateToken = (user) => {
   return jwt.sign({ id: user.id, role: user.role }, "your_jwt_secret", {
     expiresIn: "1h",
@@ -265,7 +285,6 @@ const broadcastTotals = () => {
     balance,
   });
 };
-
 // Endpoint to handle new transaction and update totals
 app.post("/transaction", (req, res) => {
   const transaction = req.body; // { type: 'debit' or 'credit', amount: number }
@@ -363,7 +382,7 @@ app.post("/logins", async (req, res) => {
       // Send back the user's data, including the name
       res.status(200).json({ message: "Login successful", user });
     } else {
-      res.status(401).json({ error: "Invalid mobile number or DOB" });
+      res.status(401).json({ error: "Invalid mobile number or DOB"});
     }
   } catch (error) {
     console.error("Error during login:", error.message);
@@ -646,8 +665,8 @@ app.get('/usertotal', async (req, res) => {
 
 // Server listening on port 8080
 
-app.listen(8080, () => {
-  console.log("Server is running on port 8080");
+app.listen(8090, () => {
+  console.log("Server is running on port 8090");
 });
 
 // to display all transactions//
@@ -660,7 +679,7 @@ app.listen(8080, () => {
   } catch (err) {
     console.error(err.message);
   }
-})
+});
 */
 
 /*app.get("/transaction", async (req, res) => {
