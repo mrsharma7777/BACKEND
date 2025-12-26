@@ -76,7 +76,7 @@ io.on("connection", (socket) => {
 });
 // server.js
 
-app.get("/counts", async (req, res) => {
+app.get("/count", async (req, res) => {
   try {
     const result = await pool.query(
       "SELECT COUNT(*) AS total_users FROM user_data"
