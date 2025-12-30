@@ -29,11 +29,11 @@ app.use(bodyParser.json());
 app.use("/auth", authRoutes);
 
 const pool = new Pool({
-  host: "dpg-d4liaeodl3ps73871he0-a.singapore-postgres.render.com",
-  user: "database_inlf_user",
+  host: "dpg-d59p1v95pdvs73ah760g-a.singapore-postgres.render.com",
+  user: "databases_3zfx_user",
   port: 5432,
-  password: "hInbQ5fjJLxSxzhG4oUQDCekj0FqW7yV",// Set your actual DB password
-  database: "database_inlf",
+  password: "5zErryYUDvD42x4FUrVdkKsti0Xy1kKR",// Set your actual DB password
+  database: "databases_3zfx",
   ssl: {
     rejectUnauthorized: false,// Required for many cloud-hosted PostgreSQL providers
   },
