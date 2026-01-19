@@ -19,7 +19,7 @@ const pool = new Pool({
  
 });
 
-const SECRET_KEY = "your_jwt_secret" // Use a strong secret key in production
+const SECRET_KEY = "your_jwt_secret";// Use a strong secret key in production
 const EMAIL_USER = "your-email@example.com"; // Your email for sending
 // Your email password
 
