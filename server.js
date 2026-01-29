@@ -49,7 +49,7 @@ const pool = new Pool({
 //   // ssl: {
 //   //   rejectUnauthorized: false, // Required for many cloud-hosted PostgreSQL providers
 //   // },
-// })
+// });
 
 
 
