@@ -250,7 +250,7 @@ app.get("/transaction/totals", async (req, res) => {
 
     console.log(
       `Total Debit: ${totalDebit}, Total Credit: ${totalCredit}, Balance: ${balance}`
-    ); // Debugging totals
+    ); // Debugging total
 
     // Send response with totals
     res.json({
