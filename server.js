@@ -21,7 +21,7 @@ const io = socketIo(server, {
 //     methods: "GET,POST,PUT,DELETE",
 //     credentials: true,
 //   })
-// );
+// )
 // app.use(cors{"https://jrinfotech.netlify.app","http://localhost:5173"})
 // methods:"GET,POST,PUT,DELETE"
 app.use(cors());
