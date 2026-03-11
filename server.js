@@ -352,7 +352,7 @@ io.on("connection", (socket) => {
       return res.status(400).json({ message: "Invalid credentials" });
     }
 
-    // Generate JWT or session
+    // Generate JWT or sessions
     const token = generateToken(user);
     res.json({ token });
   } catch (error) {
