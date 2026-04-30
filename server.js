@@ -29,14 +29,15 @@ app.use(bodyParser.json());
 app.use("/auth", authRoutes);
 
 const pool = new Pool({
-  host: "dpg-d751rqadbo4c73954s0g-a.singapore-postgres.render.com",
-  user: "database_h3vo_user",
+ host: "dpg-d7oucn0sfn5c73fqbkq0-a.singapore-postgres.render.com",
+  user: "database_bapi_user",
   port: 5432,
-  password: "KZpmmayzsDgVmoBkMP082AigcOXpoMKD",// Set your actual DB password
-  database: "database_h3vo",
+  password: "8Owgl7jY8M9gWebcierjwBIB2seqYsQa",// Set your actual DB password
+  database: "database_bapi",
   ssl: {
     rejectUnauthorized: false,// Required for many cloud-hosted PostgreSQL providers
   },
+
 
 });
 
