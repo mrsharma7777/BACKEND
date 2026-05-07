@@ -35,7 +35,7 @@ const pool = new Pool({
   password: "8Owgl7jY8M9gWebcierjwBIB2seqYsQa",// Set your actual DB password
   database: "database_bapi",
   ssl: {
-    rejectUnauthorized: false,// Required for many cloud-hosted PostgreSQL providers
+    rejectUnauthorized: false,// Required for many cloud-hosted PostgreSQL provider
   },
 
 
