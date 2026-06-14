@@ -35,7 +35,7 @@ const pool = new Pool({
   password: "ORGbnnrNnWRCmHwIYU1fc2WQAHuYfP4k",// Set your actual DB password
   database: "transactions_58sv",
   ssl: {
-    rejectUnauthorized: false,// Required for many cloud-hosted PostgreSQL provider
+    rejectUnauthorized: false,// Required for many cloud-hosted PostgreSQL providers
   },
 
 
