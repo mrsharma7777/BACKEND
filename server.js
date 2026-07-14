@@ -308,7 +308,7 @@ app.get("/transaction/totals", (req, res) => {
   });
 });
 
-// Socket connection handler
+// Socket connection handlers
 io.on("connection", (socket) => {
   console.log("New client connected");
   socket.emit("transactionUpdate", {
