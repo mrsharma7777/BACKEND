@@ -57,7 +57,7 @@ const pool = new Pool({
 app.use(cors());
 app.use(express.json());
 
-// Store all live client
+// Store all live clients
 let liveClients = [];
 
 io.on("connection", (socket) => {
