@@ -29,15 +29,14 @@ app.use(bodyParser.json());
 app.use("/auth", authRoutes);
 
 const pool = new Pool({
-  host: "dpg-d98k50l8nd3s73cgh010-a.singapore-postgres.render.com",
-  user: "transactions_2tmj_user",
+  host: "dpg-d9sorpm7bikc739vhsng-a.singapore-postgres.render.com",
+  user: "database_843p_user",
   port: 5432,
-  password: "A8fKP6dpS7k3w1azf40BX7AEuXJqMX29",// Set your actual DB password
-  database: "transactions_2tmj",
+  password: "oAeLRuqLBegPjdMxezwTQhLGP0mBwhRF",// Set your actual DB password
+  database: "database_843p",
   ssl: {
     rejectUnauthorized: false,// Required for many cloud-hosted PostgreSQL providers
   },
-
 
 });
 
