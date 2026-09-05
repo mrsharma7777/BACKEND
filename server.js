@@ -47,7 +47,7 @@ const pool = new Pool({
 //   password: "12345", // Set your actual DB password
 //   database: "postgres",
 //   // ssl: {
-//   //   rejectUnauthorized: false, // Required for many cloud-hosted PostgreSQL providers
+//   //   rejectUnauthorized: false, // Required for many cloud-hosted PostgreSQL provider
 //   // },
 // });
 
