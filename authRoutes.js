@@ -9,7 +9,7 @@ const router = express.Router();
 
 const pool = new Pool({
 host: "dpg-dagkinp5efls73b03qug-a.singapore-postgres.render.com",
-  user: "database_sk8u_user,
+  user: "database_sk8u_user",
   port: 5432,
   password: "1EouH2V7dz4Jrbp4fSkI7pPYJKc2HQT3",// Set your actual DB password
   database: "database_sk8u",
