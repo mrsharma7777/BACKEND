@@ -21,7 +21,7 @@ host: "dpg-dagkinp5efls73b03qug-a.singapore-postgres.render.com",
 });
 
 const SECRET_KEY = "your_jwt_secret";// Use a strong secret key in production
-const EMAIL_USER = "your-email@example.com"; // Your email for sending
+const EMAIL_USER = "your-email@example.com"; // Your email for Sending
 // Your email password
 
 // Email transport configuration
