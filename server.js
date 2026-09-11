@@ -17,7 +17,7 @@ const io = socketIo(server, {
 });
 // app.use(
 //   cors({
-//     origin: ["https://jrinfotech.netlify.app", "http://localhost:5173"], // Add localhost for development
+//     origin: ["https://jrinfotech.netlify.app", "http://localhost:5173"], // Add localhost for Development
 //     methods: "GET,POST,PUT,DELETE",
 //     credentials: true,
 //   })
