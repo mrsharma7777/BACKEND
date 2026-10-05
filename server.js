@@ -35,7 +35,7 @@ host: "dpg-dagkinp5efls73b03qug-a.singapore-postgres.render.com",
   password: "1EouH2V7dz4Jrbp4fSkI7pPYJKc2HQT3",// Set your actual DB password
   database: "database_sk8u",
   ssl: {
-    rejectUnauthorized: false,// Required for many cloud-hosted PostgreSQL providers
+    rejectUnauthorized: false,// Required for many cloud-hosted PostgreSQL provider
   },
 
 });
