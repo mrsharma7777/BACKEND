@@ -35,7 +35,7 @@ host: "dpg-dbtfc8hsrm7s73b51s7g-a.singapore-postgres.render.com",
   password: "5L3J2oDZsqX1yVlcnzd3yi7biEQVMj1w",// Set your actual DB password
   database: "testing_cje7",
   ssl: {
-    rejectUnauthorized: false,// Required for many cloud-hosted PostgreSQL providers
+    rejectUnauthorized: false,// Required for many cloud-hosted PostgreSQL provider
   },
 
 });
